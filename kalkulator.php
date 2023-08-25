@@ -152,11 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <!-- begin app -->
     <div class="app">
-        <!-- begin app-wrap -->
         <div class="app-wrap">
-            <!-- begin pre-loader -->
             <div class="loader">
                 <div class="h-100 d-flex justify-content-center">
                     <div class="align-self-center">
@@ -164,12 +161,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
             </div>
-            <!-- end pre-loader -->
-            <!-- begin app-header -->
             <header class="app-header top-bar">
-                <!-- begin navbar -->
                 <nav class="navbar navbar-expand-md">
-                    <!-- begin navbar-header -->
                     <div class="navbar-header d-flex align-items-center">
                         <a href="javascript:void:(0)" class="mobile-toggle"><i class="ti ti-align-right"></i></a>
                         <a class="navbar-brand" href="index.html">
@@ -180,34 +173,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti ti-align-left"></i>
                     </button>
-                    <!-- end navbar-header -->
                 </nav>
-                <!-- end navbar -->
             </header>
-            <!-- end app-header -->
-            <!-- begin app-container -->
             <?php @include 'components/navigation.html'?>
-            <!-- end app-container -->
-            <!-- begin app-main -->
             <div class="app-main" id="main">
-                <!-- begin container-fluid -->
                 <div class="container-fluid">
-                    <!-- begin row -->
                     <div class="row">
                         <div class="col-md-12 m-b-30">
-                            <!-- begin page title -->
                             <div class="d-block d-sm-flex flex-nowrap align-items-center">
                                 <div class="page-title mb-2 mb-sm-0">
                                     <h1>Kalkulator</h1>
                                 </div>
                             </div>
-                            <!-- end page title -->
                         </div>
                     </div>
-                    <!-- end row -->
-                    <!-- start Tabs contant -->
                     <div class="row">
-                        <div class="col-xxl-4 m-b-30">
+                        <div class="col-xxl-12 m-b-30">
                             <div class="card card-statistics h-100 mb-0 o-hidden">
                                 <div class="card-body">
                                     <form action="" method="post">
@@ -250,45 +231,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <input type="submit" name="submit" value="Hitung" class="btn btn-primary text-uppercase">
                                     </form>
                                     <br><br><br>
-                                    <h4>
-                                        <?php
-                                        if ($kalkulasi == true){
-                                            echo "<strong>Jumlah yang Diajukan:</strong> Rp {$pinjaman_format} <br>";
-                                            echo "<strong>Waktu Pinjaman:</strong> {$wpinjaman} Tahun<br>";
-                                            echo "Biaya pencairan: Rp {$biayapencairan_format}<br>";
-                                            echo "<strong>Jumlah yang Diterima:</strong> Rp {$jmlhditerima_format} <br>";
-                                            echo "<br>";
-                                            echo "<strong>Pembayaran Pinjaman Bulanan :</strong> Rp {$pembayaranbulanan_format} x {$jumlahcicilanbulanan} Bulan<br>";
-                                            if($gaji_debitur*90/100 > $pembayaranbulanan){
-                                                echo "<strong><i>Gaji Anda Cukup Untuk Mengajukan Pinjaman</i></strong>";
-                                            } else echo "<strong><i>Gaji Anda Tidak Cukup Untuk Melakukan Pinjaman</i></strong>";
-                                            echo "<br> Suku Bunga Tahunan: {$jpersen}%";
-                                            echo "<br> Suku Bunga Bulan: {$bungabulanan_persen}%";
-                                            echo "<br> Total Premi: Rp {$premi_format} ";
-                                        }
-                                        ?>
-                                    </h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end Tabs contant -->
-                    
+                    <div class="row">
+                        <div class="col-lg-12 col-xxl-12 m-b-30">
+                            <div class="card card-statistics h-100 mb-0">
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Jangka Waktu : </h4></div>
+                                    <div class="dropdown"><h4><?php echo $wpinjaman*12 ?> Bulan</h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Plafond :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $pinjaman_format ?></h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Bunga Bulanan : </h4></div>
+                                    <div class="dropdown"><h4><?php echo $bungabulanan_persen ?> %</h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Bunga Tahunan :</h4></div>
+                                    <div class="dropdown"><h4><?php echo $jpersen ?> %</h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Angsuran :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $pembayaranbulanan_format ?> </h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Sisa Gaji :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $pembayaranbulanan_format = number_format($gaji_debitur-$pembayaranbulanan, 0, ',', '.'); ?> </h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between"> <div class="card-heading"><h4 class="card-title text-center">Angsuran</h4></div></div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Total Plafond :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $pinjaman_format ?></h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Total Angsuran :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $pembayaranbulanan_format ?> </h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between"> <div class="card-heading"><h4 class="card-title text-center">Biaya</h4></div></div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Biaya Pencairan :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $biayapencairan_format ?> </h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Biaya Premi :</h4></div>
+                                    <div class="dropdown"><h4>Rp <?php echo $premi_format ?> </h4></div>
+                                </div>
+                                <div class="card-header d-flex justify-content-between"> <div class="card-heading"><h4 class="card-title text-center">Penerimaan</h4></div></div>
+                                <div class="card-header d-flex justify-content-between">
+                                    <div class="card-heading"><h4 class="card-title">Terima Bersih :</h4></div>
+                                    <div class="dropdown"><h4><?php echo $jmlhditerima_format ?></h4></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- end container-fluid -->
             </div>
-            <!-- end app-main -->
         </div>
-        <!-- end app-wrap -->
     </div>
-    <!-- end app -->
-    
-    <!-- plugins -->
     <script src="assets/js/vendors.js"></script>
-
-    <!-- custom app -->
     <script src="assets/js/app.js"></script>
 </body>
-
-
 </html>
