@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: #181818;
+    color: white;
+    overflow: hidden;
+}
+
+#wrapper{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100vh;
+}
+
+#right{
+    flex: 1;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding-bottom: 1rem;
+}
+#login form{
+    width: 80%;
+    padding-bottom: 3rem;
+}
+
+#login .logo h1{
+    align-items: center;
+    justify-content: center;
+}
+
+#login .logo{
+    margin-bottom: 1vh;
+}
+
+#login .label{
+    margin-bottom: 8vh;
+}
+
+#login .logo img{
+    width: 200px;
+}
+
+#login label{
+    font-size: 0.9rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+
+#login .text-input{
+    margin-bottom: 1.3rem;
+    width: 100%;
+    border-radius: 2px;
+    background: #181818;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 0.5rem 1rem ;
+    line-height: 1.3rem;
+}
+
+#login .primary-btn{
+    width: 100%;
+    margin-top: 3vh;
+}
+
+.primary-btn{
+    padding: 0.7rem 1rem;
+    height: 2.7rem;
+    display: block;
+    border: 0;
+    border-radius: 2px;
+    font-weight: 500;
+    background: rgb(132, 0, 255);
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+
+
+.primary-btn:hover{
+    background-color: rgb(255, 81, 0);
+}
+
+@media(min-width: 1200px){
+    #left{
+        flex: 3;
+    }
+    #right{
+        flex: 6;
+    }
+}
+
+#image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('12345.jpg')no-repeat center center / cover;
+    height: 100vh;
+    text-align: center;
+}
