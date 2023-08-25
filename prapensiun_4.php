@@ -25,9 +25,10 @@ if(isset($_POST['submit'])){
     $umur_pengajuan = $_POST['umur_pengajuan'];
     $kode_marketing = $_SESSION['user_name'];
     $jenis_payroll = $_POST['jenis_payroll'];
+    $pk = $_POST['pk'];
 
-    $insert = "INSERT INTO temp_form4(jumlah_pinjaman,waktu_pinjaman,umur_pengajuan,kode_marketing,jenis_payroll) 
-    VALUES('$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$kode_marketing','$jenis_payroll')";
+    $insert = "INSERT INTO temp_form4(jumlah_pinjaman,waktu_pinjaman,umur_pengajuan,kode_marketing,jenis_payroll,pk) 
+    VALUES('$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$kode_marketing','$jenis_payroll','$pk')";
     mysqli_query($conn, $insert);
     //header('Location: user_page6.php');
     header('Location: prapensiun_5.php');
@@ -127,6 +128,14 @@ if(isset($_POST['submit'])){
                                                     <label class="form-check-label" for="inlineRadio02">Non Nagari</label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput11">PK</label>
+                                            <select class="form-control"
+                                            name="pk" type="text"  id="formGroupExampleInput11" placeholder="Masukkan PK Anda">
+                                                <option>PK 1</option>
+                                                <option>PK 2</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="submit" name="submit" value="Selanjutnya" class="btn btn-primary text-uppercase">

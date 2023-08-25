@@ -24,9 +24,10 @@ if(isset($_POST['submit'])){
     $waktu_pinjaman = $_POST['waktu_pinjaman'];
     $umur_pengajuan = $_POST['umur_pengajuan'];
     $kode_marketing = $_SESSION['user_name'];
+    $pk = $_POST['pk'];
 
     $insert = "INSERT INTO temp_form4(jumlah_pinjaman,waktu_pinjaman,umur_pengajuan,kode_marketing) 
-    VALUES('$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$kode_marketing')";
+    VALUES('$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$kode_marketing','$pk')";
     mysqli_query($conn, $insert);
     //header('Location: user_page6.php');
     header('Location: user_page5.php');
@@ -113,6 +114,14 @@ if(isset($_POST['submit'])){
                                         <div class="form-group">
                                             <label for="numeric10">Umur Pengajuan (dalam tahun)</label>
                                             <input name="umur_pengajuan" type="text" class="form-control autonumber" id="numeric10" value="<?php echo $umur; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput11">PK</label>
+                                            <select class="form-control"
+                                            name="pk" type="text"  id="formGroupExampleInput11" placeholder="Masukkan PK Anda">
+                                                <option>PK 1</option>
+                                                <option>PK 2</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="submit" name="submit" value="Selanjutnya" class="btn btn-primary text-uppercase">

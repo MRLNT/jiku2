@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     // TABLE 3
     $nama_debitur = $_POST['nama_debitur'];$tempat_lahir = $_POST['tempat_lahir'];$tanggal_lahir = $_POST['tanggal_lahir'];$nik_debitur = $_POST['nik_debitur'];$nip_debitur = $_POST['nip_debitur'];$nomor_pensiun = $_POST['nomor_pensiun'];$alamat_rumah = $_POST['alamat_rumah'];$nama_ibu = $_POST['nama_ibu'];$nama_instansi = $_POST['nama_instansi'];$pangkat_golongan = $_POST['pangkat_golongan'];$nomor_rekening = $_POST['nomor_rekening'];$nomor_npwp = $_POST['nomor_npwp'];$nomor_telepon = $_POST['nomor_telepon'];$gaji_debitur = $_POST['gaji_debitur'];$gaji_debitur = preg_replace('/[.,]|Rp\s?/u', '', $gaji_debitur);
     // TABLE 4
-    $sql4 = "SELECT * FROM temp_form4 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";$result4 = $conn->query($sql4);if ($result4->num_rows > 0) {$row = $result4->fetch_assoc();$jumlah_pinjaman = $row['jumlah_pinjaman'];$waktu_pinjaman = $row['waktu_pinjaman'];$umur_pengajuan = $row['umur_pengajuan'];$suku_bunga = $row['suku_bunga'];$total_premi = $row['total_premi'];$pembayaranbulanan = $row['pembayaran_bulanan'];} else echo "No data found.";
+    $sql4 = "SELECT * FROM temp_form4 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";$result4 = $conn->query($sql4);if ($result4->num_rows > 0) {$row = $result4->fetch_assoc();$jumlah_pinjaman = $row['jumlah_pinjaman'];$waktu_pinjaman = $row['waktu_pinjaman'];$umur_pengajuan = $row['umur_pengajuan'];$suku_bunga = $row['suku_bunga'];$total_premi = $row['total_premi'];$pembayaranbulanan = $row['pembayaran_bulanan'];$pk = $row['pk'];} else echo "No data found.";
     // TABLE 5
     $kredit_file_1 = $_POST['kredit_file_1'];$kredit_file_2 = $_POST['kredit_file_2'];$kredit_file_3 = $_POST['kredit_file_3'];$kredit_file_4 = $_POST['kredit_file_4'];$kredit_file_5 = $_POST['kredit_file_5'];$kredit_file_6 = $_POST['kredit_file_6'];$kredit_file_7 = $_POST['kredit_file_7'];$kredit_file_8 = $_POST['kredit_file_8'];$kredit_file_9 = $_POST['kredit_file_9'];$kredit_file_10 = $_POST['kredit_file_10'];$kredit_file_11 = $_POST['kredit_file_11'];$kredit_file_12 = $_POST['kredit_file_12'];$kredit_file_13 = $_POST['kredit_file_13'];$kredit_file_14 = $_POST['kredit_file_14'];$kredit_file_15 = $_POST['kredit_file_15'];$kredit_file_16 = $_POST['kredit_file_16'];$kredit_file_17 = $_POST['kredit_file_17'];$kredit_file_18 = $_POST['kredit_file_18'];$kredit_file_19 = $_POST['kredit_file_19'];
     $catatan_file_1 = $_POST['catatan_file_1'];
@@ -45,14 +45,14 @@ if(isset($_POST['submit'])){
         nama_marketing, nik_marketing, cabang_pembantu, no_hp_marketing, kode_marketing,
         waktu_pengajuan, tanggal_syarat_ketentuan,
         nama_debitur,tempat_lahir,tanggal_lahir,nik_debitur,nip_debitur,nomor_pensiun,alamat_rumah,nama_ibu,nama_instansi,pangkat_golongan,nomor_rekening,nomor_npwp,nomor_telepon,gaji_debitur,
-        jumlah_pinjaman,waktu_pinjaman,umur_pengajuan,suku_bunga,total_premi,pembayaran_bulanan,
+        jumlah_pinjaman,waktu_pinjaman,umur_pengajuan,suku_bunga,total_premi,pembayaran_bulanan,pk,
         kredit_file_1, kredit_file_2, kredit_file_3, kredit_file_4, kredit_file_5, kredit_file_6, kredit_file_7, kredit_file_8, kredit_file_9, kredit_file_10, kredit_file_11, kredit_file_12, kredit_file_13, kredit_file_14, kredit_file_15, kredit_file_16, kredit_file_17, kredit_file_18, kredit_file_19,
         catatan_file_1, catatan_file_2, catatan_file_3, catatan_file_4, catatan_file_5, catatan_file_6, catatan_file_7, catatan_file_8, catatan_file_9, catatan_file_10, catatan_file_11, catatan_file_12, catatan_file_13, catatan_file_14, catatan_file_15, catatan_file_16, catatan_file_17, catatan_file_18, catatan_file_19
         ) 
         VALUES('$tipe_kredit','$nama_marketing','$nik_marketing','$cabang_pembantu','$no_hp_marketing','$kode_marketing',
         '$tanggal_syarat_ketentuan','$tanggal_syarat_ketentuan',
         '$nama_debitur','$tempat_lahir','$tanggal_lahir','$nik_debitur','$nip_debitur','$nomor_pensiun','$alamat_rumah','$nama_ibu','$nama_instansi','$pangkat_golongan','$nomor_rekening','$nomor_npwp','$nomor_telepon','$gaji_debitur',
-        '$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$suku_bunga','$total_premi','$pembayaranbulanan',
+        '$jumlah_pinjaman','$waktu_pinjaman','$umur_pengajuan','$suku_bunga','$total_premi','$pembayaranbulanan','$pk',
         '$kredit_file_1','$kredit_file_2','$kredit_file_3','$kredit_file_4','$kredit_file_5','$kredit_file_6','$kredit_file_7','$kredit_file_8','$kredit_file_9','$kredit_file_10','$kredit_file_11','$kredit_file_12','$kredit_file_13','$kredit_file_14','$kredit_file_15','$kredit_file_16','$kredit_file_17','$kredit_file_18','$kredit_file_19',
         '$catatan_file_1','$catatan_file_2','$catatan_file_3','$catatan_file_4','$catatan_file_5','$catatan_file_6','$catatan_file_7','$catatan_file_8','$catatan_file_9','$catatan_file_10','$catatan_file_11','$catatan_file_12','$catatan_file_13','$catatan_file_14','$catatan_file_15','$catatan_file_16','$catatan_file_17','$catatan_file_18','$catatan_file_19'
         )";
@@ -354,6 +354,16 @@ if(isset($_POST['submit'])){
                                                     <label class="form-check-label" for="inlineRadio02">Non Nagari</label>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput11">PK</label>
+                                            <select class="form-control"
+                                            name="pk" type="text"  id="formGroupExampleInput11" placeholder="Masukkan PK Anda">
+                                                <option>PK 1</option>
+                                                <option>PK 2</option>
+                                                <option <?php echo ($row['pk'] == 'PK 1') ? 'selected' : '' ?>>PK 1</option>
+                                                <option <?php echo ($row['pk'] == 'PK 2') ? 'selected' : '' ?>>PK 2</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <h5>Jumlah Pinjaman: Rp <?php echo number_format($row['jumlah_pinjaman'], 0, ',', '.') ?></h5>
