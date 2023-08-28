@@ -5,6 +5,7 @@ if(!isset($_SESSION['user_name'])){
    header('location:login_form.php');
 }
 $kode_marketing = $_SESSION['user_name'];
+$edit_id = $_GET['edit_id'];                                          
 //error_reporting(E_ERROR | E_PARSE);
 
 
@@ -117,7 +118,7 @@ if(isset($_POST['submit'])){
                             <!-- begin page title -->
                             <div class="d-block d-sm-flex flex-nowrap align-items-center">
                                 <div class="page-title mb-2 mb-sm-0">
-                                    <h1>Review Formulir Akhir</h1>
+                                    <h1>DATA FINAL ASN PENSIUN</h1>
                                 </div>
                             </div>
                             <!-- end page title -->
@@ -132,18 +133,11 @@ if(isset($_POST['submit'])){
                                     <div class="card-header">
                                         <div class="card-heading">
                                             <h4 class="card-title">Data Marketing</h4>
-                                            <?php
-                                            $edit_id = $_GET['edit_id'];
-                                            echo $edit_id;
-                                            ?>
-
                                         </div>
                                     </div>
                                     <div class="card-body">
                                         <?php
-                                        $kode_marketing = $_SESSION['user_name'];
-                                        $sql1 = "SELECT * FROM temp_form1 WHERE id_pengajuan = 12";
-                                        // $sql1 = "SELECT * FROM temp_form1 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";
+                                        $sql1 = "SELECT * FROM data_kredit_pensiun WHERE id_pengajuan = $edit_id";
                                         $result1 = $conn->query($sql1);
                                         if ($result1->num_rows > 0) {
                                             $row = $result1->fetch_assoc();
@@ -229,8 +223,7 @@ if(isset($_POST['submit'])){
                                     <div class="card-body">
                                         <h5 class="card-text">Bank Nagari<br>Syarat dan Ketentuan:<br>1.	Calon Debitur membuat dan menandatangi permohonan kredit/pembiayaan, dengan melengkapi data persyaratan yang ditetapkan oleh Bank.<br><br>2. Debitur yang akan mengajukan perubahan plafond, penukaran jaminan, syarat - syarat lainnya dari Perjanjian/Akad Kredit/Pembiayaan harus mengajukan dan menandatangani permohonan kepada Bank.<br><br> 3. Bank berhak meminta data - data dan keterangan yang dibutuhkan, sesuai dengan kentuan dan persyaratan kredit/pembiayaan.<br><br>4.	Calon Debitur atau Debitur berkewajiban memberi keterangan yang diminta oleh Bank dengan benar, baik mengenai identitas Debitur, kondisi keuangan dan lain sebagainya.<br><br>5. Bank setelah melaukan analisa mengenal kelayakan pemberian kredit/pembiayaan atas permohonan yang diajukan oleh Calon Debitur atau Debitur menetapkan : <br>a.	Permohonan ditolak, apabila menurut penilaian Bank, Debitur tidak layak diberikan kredit/pembiayaan.<br>b.	Permohonan ditangguhkan, apabila persyaratan yang ditetapkan oleh Bank belum dipenuhi oleh Debitur atau karena hal lain yang belum bisa dipenuhi untuk syarat pencairan kredit/pembiayaan debitur.<br>c.	Permohonan dikabulkan, apabila menurut penilaian Bank Debitur layak untuk diberikan kredit/pembiayaan.<br><br>6. Bank hanya dapat mengabulkan permohonan Calon Debitur atau Debitur, maksimal sebesar permohonan Calon Debitur atau Debitur.<br><br>7. Berdasarkan analisa yang telah dilakukan Bank dapat menetapkan arah/komposisi pembiayaan usaha calon Debitur atau Debitur.<br><br>8. Calon Debitur jika setuju dengan persyaratan Bank wajib menandatangani Surat Pemberitahuan Persetujuan Kredit yang diserahkan oleh Bank kepada Debitur.<br><br>9. Jumlah kredit yang diberikan tidak mutlak ditentukan oleh nilai agunan yang diberikan Debitur, tetapi berdasarkan kemampuan bayar dan kebutuhan kredit Debitur.<br></h5>
                                         <?php
-                                        $kode_marketing = $_SESSION['user_name'];
-                                        $sql2 = "SELECT * FROM temp_form2 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";
+                                        $sql2 = "SELECT * FROM data_kredit_pensiun WHERE id_pengajuan = $edit_id";
                                         $result2 = $conn->query($sql2);
                                         if ($result2->num_rows > 0) {
                                             $row = $result2->fetch_assoc();
@@ -247,8 +240,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="card-body">
                                         <?php
-                                        $kode_marketing = $_SESSION['user_name'];
-                                        $sql3 = "SELECT * FROM temp_form3 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";
+                                        $sql3 = "SELECT * FROM data_kredit_pensiun WHERE id_pengajuan = $edit_id";
                                         $result3 = $conn->query($sql3);
                                         if ($result3->num_rows > 0) {
                                             $row = $result3->fetch_assoc();
@@ -340,8 +332,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="card-body">
                                         <?php
-                                        $kode_marketing = $_SESSION['user_name'];
-                                        $sql4 = "SELECT * FROM temp_form4 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";
+                                        $sql4 = "SELECT * FROM data_kredit_pensiun WHERE id_pengajuan = $edit_id";
                                         $result4 = $conn->query($sql4);
                                         if ($result4->num_rows > 0) {
                                             $row = $result4->fetch_assoc();
@@ -386,8 +377,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div class="card-body scrollbar scroll_dark" style="max-height: 420px;">
                                     <?php
-                                        $kode_marketing = $_SESSION['user_name'];
-                                        $sql6 = "SELECT * FROM temp_form6 WHERE kode_marketing = '$kode_marketing' ORDER BY id_pengajuan DESC LIMIT 1";
+                                        $sql6 = "SELECT * FROM data_kredit_pensiun WHERE id_pengajuan = $edit_id";
                                         $result6 = $conn->query($sql6);
                                         if ($result6->num_rows > 0) {
                                             $row = $result6->fetch_assoc();

@@ -63,7 +63,7 @@ if(!isset($_SESSION['user_name'])){
                         <div class="col-md-12 m-b-30">
                             <div class="d-block d-sm-flex flex-nowrap align-items-center">
                                 <div class="page-title mb-2 mb-sm-0">
-                                    <h1>Data Final Pra-Pensiun</h1>
+                                    <h1>DATA FINAL ASN PENSIUN</h1>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ if(!isset($_SESSION['user_name'])){
                                             echo '<td>' . $row['id_pengajuan'] . '</td>';
                                             echo '<td>' . $row['nama_marketing'] . '</td>';
                                             echo '<td>' . $row['nama_debitur'] . '</td>';
-                                            echo '<td><a href="testing?edit_id=' . $row['id_pengajuan'] . '" class="btn btn-info">Edit</a></td>';
+                                            echo '<td><a href="final_prapensiun_check?edit_id=' . $row['id_pengajuan'] . '" class="btn btn-info">Edit</a></td>';
                                             echo '</tr>';
                                         }
                                         echo '</table>';

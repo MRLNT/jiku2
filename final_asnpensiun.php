@@ -63,7 +63,7 @@ if(!isset($_SESSION['user_name'])){
                         <div class="col-md-12 m-b-30">
                             <div class="d-block d-sm-flex flex-nowrap align-items-center">
                                 <div class="page-title mb-2 mb-sm-0">
-                                    <h1>Data Final ASN Pensiun</h1>
+                                    <h1>DATA FINAL ASN PENSIUN</h1>
                                 </div>
                             </div>
                         </div>
@@ -73,34 +73,32 @@ if(!isset($_SESSION['user_name'])){
                             <div class="card card-statistics">
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <?php
-                                            $sql = "SELECT id_pengajuan, nama_marketing, nama_debitur FROM data_kredit_pensiun";
-                                            $result = $conn->query($sql);
-
-                                            if ($result->num_rows > 0) {
-                                                echo '<table class="table display responsive nowrap table-light table-bordered">';
-                                                echo '<thead class="thead-light">';
-                                                echo "<tr>";
-                                                echo "<th>ID Pengajuan</th>";
-                                                echo "<th>Nama Marketing</th>";
-                                                echo "<th>Nama Debitur</th>";
-                                                echo "<th>Edit</th>";
-                                                echo "</tr>";
-                                                echo "</thead>";
-
-                                                while ($row = $result->fetch_assoc()) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . $row['id_pengajuan'] . "</td>";
-                                                    echo "<td>" . $row['nama_marketing'] . "</td>";
-                                                    echo "<td>" . $row['nama_debitur'] . "</td>";
-                                                    echo '<td><a href="dashboard_user" class="btn btn-info">Edit</a></td>';
-                                                    echo "</tr>";
-                                                }
-                                                echo "</table>";
-                                            } else {
-                                                echo "No records found.";
-                                            }
-                                        ?>
+                                    <?php
+                                    $sql = "SELECT id_pengajuan, nama_marketing, nama_debitur FROM data_kredit_pensiun";
+                                    $result = $conn->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        echo '<table class="table display responsive nowrap table-light table-bordered">';
+                                        echo '<thead class="thead-light">';
+                                        echo '<tr>';
+                                        echo '<th>ID Pengajuan</th>';
+                                        echo '<th>Nama Marketing</th>';
+                                        echo '<th>Nama Debitur</th>';
+                                        echo '<th>Edit</th>';
+                                        echo '</tr>';
+                                        echo '</thead>';
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '<tr>';
+                                            echo '<td>' . $row['id_pengajuan'] . '</td>';
+                                            echo '<td>' . $row['nama_marketing'] . '</td>';
+                                            echo '<td>' . $row['nama_debitur'] . '</td>';
+                                            echo '<td><a href="final_asnpensiun_check?edit_id=' . $row['id_pengajuan'] . '" class="btn btn-info">Edit</a></td>';
+                                            echo '</tr>';
+                                        }
+                                        echo '</table>';
+                                    } else {
+                                        echo 'No records found.';
+                                    }
+                                    ?>
                                     </div>
                                 </div>
                             </div>
@@ -110,6 +108,11 @@ if(!isset($_SESSION['user_name'])){
             </div>
         </div>
     </div>
+    <script>
+    function setEditId(id) {
+            <?php $_SESSION['edit_id_pengajuan'] = "' + id + '"; ?>
+        }
+    </script>
     <script src="assets/js/vendors.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
